@@ -9,6 +9,10 @@ namespace greta
         #region 資料區域
         [SerializeField, Header("對話間隔"), Range(0, 0.5f)]
         private float dialogueIntervalTime = 0.1f;
+        [SerializeField, Header("開頭對話")]
+        private DialogueData dialogueOpening;
+        [SerializeField, Header("對話按鍵")]
+        private KeyCode dialogueKey = KeyCode.Space;
 
         private WaitForSeconds dialogueInterval => new WaitForSeconds(dialogueIntervalTime);
 
@@ -27,20 +31,61 @@ namespace greta
             goTriangle = GameObject.Find("對話完成圖示");
             goTriangle.SetActive(false);
 
-            StartCoroutine(FadeGroup());
+            StartDialogue(dialogueOpening);
+
         } 
         #endregion
+
+        public void StartDialogue(DialogueData data) 
+        {
+            StartCoroutine(FadeGroup());
+            StartCoroutine(TypeEffect(data));
+        }
 
         ///<summary>
         ///淡入淡出群組物件
         ///</summary>
-        private IEnumerator FadeGroup() 
+        private IEnumerator FadeGroup(bool fadeIn = true) 
         {
+            float increase = fadeIn ? +0.1f : -0.1f;
+
             for (int i = 0; i < 10; i++) 
             {
-                groupDialogue.alpha += 0.1f;
+                groupDialogue.alpha += increase;
                 yield return new WaitForSeconds(0.04f);
             }
+        }
+
+        private IEnumerator TypeEffect(DialogueData data)
+        {
+            textName.text = data.dialogueName;
+
+            for (int j = 0; j< data.dialogueContents.Length; j++) 
+            {
+                textContent.text = "";
+                goTriangle.SetActive(false);
+
+                string dialogue = data.dialogueContents[j];
+
+
+                for (int i = 0; i < dialogue.Length; i++) 
+                 {
+                     textContent.text += dialogue[i];
+                     yield return dialogueInterval;
+                }
+
+                 goTriangle.SetActive(true);
+
+                while (!Input.GetKeyDown(dialogueKey)) 
+                 {
+                     yield return null;
+                 }
+            }
+
+            StartCoroutine(FadeGroup(false));
+          
+
+           
         }
     }
 }
