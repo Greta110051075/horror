@@ -12,7 +12,7 @@ namespace greta
         [SerializeField, Header("開頭對話")]
         private DialogueData dialogueOpening;
         [SerializeField, Header("對話按鍵")]
-        private KeyCode dialogueKey = KeyCode.Space;
+        private KeyCode dialogueKey = KeyCode.Mouse0;
 
         private WaitForSeconds dialogueInterval => new WaitForSeconds(dialogueIntervalTime);
 

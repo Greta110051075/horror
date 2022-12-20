@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2003f8d98f24f054a9cc9769681d5a26, type: 3}
-  m_Name: DoorDialogue Data
+  m_Name: BrainDialogue
   m_EditorClassIdentifier: 
   dialogueName: "\u6211"
   dialogueContents:
-  - "\u554A......\u88AB\u9396\u4F4F\u4E86"
-  - "\u53EF\u662F\u73FE\u5728\u597D\u9913"
-  - "\u5FC5\u9808\u5148\u6709\u9470\u5319\u51FA\u53BB\u624D\u80FD\u627E\u6771\u897F\u5403\u554A......\u9084\u662F\u9019\u908A\u6709\u4EC0\u9EBC\u80FD\u5403\u7684\u55CE?"
+  - "\u9019\u908A\u6709\u500B\u5927\u8166!\u662F\u90A3\u500B\u5973\u5B69\u7684\u55CE?"
+  - "\u7B97\u4E86\uFF0C\u7BA1\u4E0D\u4E86\u9019\u9EBC\u591A\u4E86\uFF0C\u5148\u5403\u6389\u518D\u8AAA\u5427!"
