@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace greta
 {
+
     public class DialogueSystem : MonoBehaviour
     {
         #region 資料區域
@@ -20,7 +23,13 @@ namespace greta
         private TextMeshProUGUI textName;
         private TextMeshProUGUI textContent;
         private GameObject goTriangle;
+
+
+        private PlayerInput playerInput;
+
+        private UnityEvent onDialogueFinish;
         #endregion
+
 
         #region 事件
         private void Awake()
@@ -31,25 +40,29 @@ namespace greta
             goTriangle = GameObject.Find("對話完成圖示");
             goTriangle.SetActive(false);
 
+            playerInput = GameObject.Find("PlayerCapsule").GetComponent<PlayerInput>();
+
             StartDialogue(dialogueOpening);
 
-        } 
+        }
         #endregion
 
-        public void StartDialogue(DialogueData data) 
+     
+        public void StartDialogue(DialogueData data, UnityEvent _onDialogueFinish = null)
         {
+            playerInput.enabled = false;      
+
             StartCoroutine(FadeGroup());
             StartCoroutine(TypeEffect(data));
+            onDialogueFinish = _onDialogueFinish;
         }
 
-        ///<summary>
-        ///淡入淡出群組物件
-        ///</summary>
-        private IEnumerator FadeGroup(bool fadeIn = true) 
+
+        private IEnumerator FadeGroup(bool fadeIn = true)
         {
             float increase = fadeIn ? +0.1f : -0.1f;
 
-            for (int i = 0; i < 10; i++) 
+            for (int i = 0; i < 10; i++)
             {
                 groupDialogue.alpha += increase;
                 yield return new WaitForSeconds(0.04f);
@@ -60,34 +73,44 @@ namespace greta
         {
             textName.text = data.dialogueName;
 
-            for (int j = 0; j< data.dialogueContents.Length; j++) 
+            for (int j = 0; j < data.dialogueContents.Length; j++)
             {
-                textContent.text = "";
                 goTriangle.SetActive(false);
+                textContent.text = "";
 
                 string dialogue = data.dialogueContents[j];
 
-
-                for (int i = 0; i < dialogue.Length; i++) 
-                 {
-                     textContent.text += dialogue[i];
-                     yield return dialogueInterval;
+                for (int i = 0; i < dialogue.Length; i++)
+                {
+                    textContent.text += dialogue[i];
+                    yield return dialogueInterval;
                 }
 
-                 goTriangle.SetActive(true);
+                goTriangle.SetActive(true);
 
-                while (!Input.GetKeyDown(dialogueKey)) 
-                 {
-                     yield return null;
-                 }
+                while (!Input.GetKeyDown(dialogueKey))
+                {
+                    yield return null;
+                }
+
+                print("<color=#993300>玩家按下按鍵!</color>");
+
             }
 
             StartCoroutine(FadeGroup(false));
-          
 
-           
+            playerInput.enabled = true;
+
+
+            onDialogueFinish?.Invoke(); 
+
+
         }
+
+
     }
 }
+
+
 
 
