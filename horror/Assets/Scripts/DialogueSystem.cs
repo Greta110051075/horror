@@ -93,7 +93,7 @@ namespace greta
                     yield return null;
                 }
 
-                print("<color=#993300>玩家按下按鍵!</color>");
+
 
             }
 

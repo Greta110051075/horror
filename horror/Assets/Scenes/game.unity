@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371212377f5a80142b76167d3f74749e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataDialogue: {fileID: 0}
+  dataDialogue: {fileID: 11400000, guid: 4b1cac1c03c51b446bf95210b0e402da, type: 2}
   onDialogueFinish:
     m_PersistentCalls:
       m_Calls:
@@ -710,8 +710,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  propActive: {fileID: 860181747}
-  dataDialogueActive: {fileID: 11400000, guid: 4b1cac1c03c51b446bf95210b0e402da, type: 2}
+  propActive: {fileID: 0}
+  dataDialogueActive: {fileID: 0}
 --- !u!64 &514978198
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1859,6 +1859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brain
       objectReference: {fileID: 0}
+    - target: {fileID: 1481581361109270, guid: 33b0c7c5c82bc49428a8ca2281f3555e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4865215097728726, guid: 33b0c7c5c82bc49428a8ca2281f3555e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1950,6 +1954,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474619574}
         m_TargetAssemblyTypeName: greta.InteractableSysttem, Assembly-CSharp
         m_MethodName: HiddenObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 514978197}
+        m_TargetAssemblyTypeName: greta.InteractableSysttem, Assembly-CSharp
+        m_MethodName: AppearObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2158,6 +2174,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497374299}
   m_CullTransparentMesh: 1
+--- !u!1 &1537029873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100012, guid: 2c500abd2ae735a4193dbc5d6b65c168, type: 3}
+  m_PrefabInstance: {fileID: 772282631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545428889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,6 +2467,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 2c500abd2ae735a4193dbc5d6b65c168, type: 3}
   m_PrefabInstance: {fileID: 772282631}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1903244008
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537029873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 102db6f850173954d99b778f5a776fc6, type: 3}
 --- !u!1 &1934135358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 850515784000476412, guid: cf9769da514c444459977f2c3b46e5c3, type: 3}
@@ -2538,6 +2573,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1431889389}
     m_Modifications:
+    - target: {fileID: 1693252891024278160, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4033912322188179375, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: m_Name
       value: Key

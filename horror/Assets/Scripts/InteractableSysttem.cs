@@ -46,6 +46,13 @@ namespace greta
 
         }
 
+            
+
+        public void AppearObject() 
+        {
+            gameObject.SetActive(true);
+        }
+
 
 
         public void HiddenObject()
