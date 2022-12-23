@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 
 namespace greta
 {
@@ -19,6 +20,8 @@ namespace greta
 
         private string nameTarget = "PlayerCapsule";
         private DialogueSystem dialogueSystem;
+
+        private float appearTime = 0.5f;
 
         private void Awake()
         {
@@ -48,11 +51,6 @@ namespace greta
 
             
 
-        public void AppearObject() 
-        {
-            gameObject.SetActive(true);
-        }
-
 
 
         public void HiddenObject()
@@ -60,6 +58,11 @@ namespace greta
             gameObject.SetActive(false);
         }
 
+        public void OnBecameVisible()
+        {
+            gameObject.SetActive(true);
+           
+        }
 
     }
 

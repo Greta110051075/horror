@@ -1487,7 +1487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8390540920658689806, guid: cf9769da514c444459977f2c3b46e5c3, type: 3}
       propertyPath: m_Size.y
-      value: 3.26
+      value: 5.06
       objectReference: {fileID: 0}
     - target: {fileID: 8390540920658689806, guid: cf9769da514c444459977f2c3b46e5c3, type: 3}
       propertyPath: m_IsTrigger
@@ -1965,7 +1965,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 514978197}
         m_TargetAssemblyTypeName: greta.InteractableSysttem, Assembly-CSharp
-        m_MethodName: AppearObject
+        m_MethodName: OnBecameVisible
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
