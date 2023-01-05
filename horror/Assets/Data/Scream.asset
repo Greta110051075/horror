@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2003f8d98f24f054a9cc9769681d5a26, type: 3}
+  m_Name: Scream
+  m_EditorClassIdentifier: 
+  dialogueName: "\u6211"
+  dialogueContents:
+  - "\u525B\u525B\u662F\u4E0D\u662F\u6709\u4EBA\u7684\u6158\u53EB\u8072?"
+  - "\u662F\u6211\u7684\u932F\u89BA\u55CE?"

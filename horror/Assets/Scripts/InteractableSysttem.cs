@@ -21,8 +21,7 @@ namespace greta
         [SerializeField, Header("起動後對話結束後事件")]
         private UnityEvent onDialogueFinishActive;
 
-        [SerializeField, Header("消失音效")]
-        private AudioClip soundDisappear;
+
 
         private string nameTarget = "PlayerCapsule";
         private DialogueSystem dialogueSystem;
@@ -68,7 +67,7 @@ namespace greta
         {
             gameObject.SetActive(false);
 
-            SoundManager.instance.PlaySound(soundDisappear, new Vector2(0.8f, 1f));
+
         }
 
         public void OnBecameVisible()
